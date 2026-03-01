@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Salomao Studart | Desenvolvimento Web, QA & Automacao</title>
+    <title>Salomão Studart | Desenvolvimento Web, QA & Automação</title>
+    <meta name="description" content="Desenvolvedor web freelancer especializado em landing pages, sites responsivos e QA. Solicite um orçamento gratuito.">
+    <meta name="theme-color" content="#6C3CE1">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -53,6 +56,27 @@
             transition: color 0.3s;
         }
         .nav-links a:hover { color: var(--white); }
+
+        /* HAMBURGER */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 4px;
+        }
+        .hamburger span {
+            width: 24px;
+            height: 2px;
+            background: var(--white);
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
         /* HERO */
         .hero {
@@ -311,7 +335,20 @@
         /* RESPONSIVE */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.2rem; }
-            .nav-links { display: none; }
+            .hamburger { display: flex; }
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                flex-direction: column;
+                background: rgba(15,10,26,0.97);
+                padding: 1.5rem 2rem;
+                gap: 1.2rem;
+                border-bottom: 1px solid rgba(108,60,225,0.15);
+            }
+            .nav-links.open { display: flex; }
             section { padding: 3rem 1.2rem; }
         }
 
@@ -330,68 +367,71 @@
 
 <nav>
     <div class="logo">Studart.Dev</div>
-    <ul class="nav-links">
-        <li><a href="#servicos">Servicos</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#portfolio">Portfólio</a></li>
         <li><a href="#processo">Como Funciona</a></li>
         <li><a href="#contato">Contato</a></li>
         <li><a href="https://www.linkedin.com/in/salomao-studart" target="_blank">LinkedIn</a></li>
         <li><a href="https://github.com/salomaostudart" target="_blank">GitHub</a></li>
     </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+    </button>
 </nav>
 
 <section class="hero">
     <div class="hero-content">
-        <div class="hero-badge animate">Disponivel para projetos</div>
-        <h1 class="animate delay-1">Salomao Studart<br><span>Dev Web, QA & Automacao</span></h1>
-        <p class="animate delay-2">Desenvolvimento web profissional, landing pages que convertem, qualidade de software e automacoes inteligentes. Experiencia real em projetos de missao critica.</p>
+        <div class="hero-badge animate">Disponível para projetos</div>
+        <h1 class="animate delay-1">Salomão Studart<br><span>Dev Web, QA & Automação</span></h1>
+        <p class="animate delay-2">Desenvolvimento web profissional, landing pages que convertem, qualidade de software e automações inteligentes. Experiência real em projetos de missão crítica.</p>
         <div class="btn-group animate delay-3">
-            <a href="mailto:salomaomstudart@gmail.com" class="btn btn-primary">Solicitar Orcamento</a>
-            <a href="#portfolio" class="btn btn-outline">Ver Portfolio</a>
+            <a href="mailto:salomaomstudart@gmail.com" class="btn btn-primary">Solicitar Orçamento</a>
+            <a href="#portfolio" class="btn btn-outline">Ver Portfólio</a>
         </div>
     </div>
 </section>
 
 <section id="servicos">
     <div class="section-title">
-        <h2>Servicos</h2>
-        <p>Solucoes sob medida para cada necessidade do seu negocio</p>
+        <h2>Serviços</h2>
+        <p>Soluções sob medida para cada necessidade do seu negócio</p>
     </div>
     <div class="services-grid">
         <div class="service-card">
             <div class="service-icon">&#127760;</div>
             <h3>Landing Pages</h3>
-            <p>Paginas de alta conversao para captar clientes, vender produtos ou divulgar servicos.</p>
+            <p>Páginas de alta conversão para captar clientes, vender produtos ou divulgar serviços.</p>
             <div class="service-price">A partir de R$ 297</div>
         </div>
         <div class="service-card">
             <div class="service-icon">&#128187;</div>
             <h3>Sites Institucionais</h3>
-            <p>Sites completos e profissionais para empresas, escritorios e profissionais liberais.</p>
+            <p>Sites completos e profissionais para empresas, escritórios e profissionais liberais.</p>
             <div class="service-price">A partir de R$ 497</div>
         </div>
         <div class="service-card">
             <div class="service-icon">&#9889;</div>
-            <h3>Automacoes</h3>
-            <p>Bots para WhatsApp, Telegram, automacao de planilhas e integracao entre sistemas.</p>
+            <h3>Automações</h3>
+            <p>Bots para WhatsApp, Telegram, automação de planilhas e integração entre sistemas.</p>
             <div class="service-price">A partir de R$ 197</div>
         </div>
         <div class="service-card">
             <div class="service-icon">&#128269;</div>
             <h3>QA & Testes</h3>
-            <p>Testes de qualidade, validacao de dados, testes de integracao e pipelines. Experiencia com ONS e sistemas criticos.</p>
+            <p>Testes de qualidade, validação de dados, testes de integração e pipelines. Experiência com ONS e sistemas críticos.</p>
             <div class="service-price">A partir de R$ 150/h</div>
         </div>
         <div class="service-card">
             <div class="service-icon">&#128736;</div>
-            <h3>Manutencao e Correcoes</h3>
-            <p>Correcao de bugs, atualizacoes, melhorias de performance e suporte tecnico.</p>
+            <h3>Manutenção e Correções</h3>
+            <p>Correção de bugs, atualizações, melhorias de performance e suporte técnico.</p>
             <div class="service-price">A partir de R$ 97/h</div>
         </div>
         <div class="service-card">
             <div class="service-icon">&#128202;</div>
             <h3>Consultoria de Dados</h3>
-            <p>Validacao de qualidade de dados, SQL, integracao de sistemas e pipelines ETL.</p>
+            <p>Validação de qualidade de dados, SQL, integração de sistemas e pipelines ETL.</p>
             <div class="service-price">A partir de R$ 150/h</div>
         </div>
     </div>
@@ -399,34 +439,34 @@
 
 <section id="portfolio" style="background: var(--dark-2);">
     <div class="section-title">
-        <h2>Portfolio</h2>
+        <h2>Portfólio</h2>
         <p>Alguns dos meus trabalhos recentes</p>
     </div>
     <div class="portfolio-grid">
-        <div class="portfolio-card">
+        <a href="https://salomaostudart.github.io/landing-restaurante/" target="_blank" class="portfolio-card" style="text-decoration:none;color:inherit;">
             <div class="portfolio-preview p1">&#127869;</div>
             <div class="portfolio-info">
                 <h3>Restaurante Sabor & Arte</h3>
-                <p>Landing page completa com cardapio digital e reservas online.</p>
+                <p>Landing page completa com cardápio digital e reservas online.</p>
                 <div class="portfolio-tags">
                     <span class="tag">Landing Page</span>
                     <span class="tag">Responsivo</span>
                     <span class="tag">SEO</span>
                 </div>
             </div>
-        </div>
-        <div class="portfolio-card">
+        </a>
+        <a href="https://salomaostudart.github.io/landing-advogado/" target="_blank" class="portfolio-card" style="text-decoration:none;color:inherit;">
             <div class="portfolio-preview p2">&#9878;</div>
             <div class="portfolio-info">
                 <h3>Silva & Associados Advocacia</h3>
-                <p>Site institucional para escritorio de advocacia com formulario de consulta.</p>
+                <p>Site institucional para escritório de advocacia com formulário de consulta.</p>
                 <div class="portfolio-tags">
                     <span class="tag">Site Institucional</span>
-                    <span class="tag">Formulario</span>
+                    <span class="tag">Formulário</span>
                 </div>
             </div>
-        </div>
-        <div class="portfolio-card">
+        </a>
+        <a href="https://salomaostudart.github.io/landing-barbearia/" target="_blank" class="portfolio-card" style="text-decoration:none;color:inherit;">
             <div class="portfolio-preview p3">&#9986;</div>
             <div class="portfolio-info">
                 <h3>Barbearia Classic</h3>
@@ -436,7 +476,7 @@
                     <span class="tag">Agendamento</span>
                 </div>
             </div>
-        </div>
+        </a>
     </div>
 </section>
 
@@ -449,17 +489,17 @@
         <div class="step">
             <div class="step-num">1</div>
             <h3>Briefing</h3>
-            <p>Voce me conta o que precisa. Entendo seu negocio e objetivos.</p>
+            <p>Você me conta o que precisa. Entendo seu negócio e objetivos.</p>
         </div>
         <div class="step">
             <div class="step-num">2</div>
             <h3>Proposta</h3>
-            <p>Envio orcamento detalhado com prazo e escopo claros.</p>
+            <p>Envio orçamento detalhado com prazo e escopo claros.</p>
         </div>
         <div class="step">
             <div class="step-num">3</div>
             <h3>Desenvolvimento</h3>
-            <p>Crio seu projeto com atualizacoes frequentes do progresso.</p>
+            <p>Crio seu projeto com atualizações frequentes do progresso.</p>
         </div>
         <div class="step">
             <div class="step-num">4</div>
@@ -470,8 +510,8 @@
 </section>
 
 <section class="cta" id="contato">
-    <h2>Pronto para comecar?</h2>
-    <p>Entre em contato e receba um orcamento gratuito em ate 24 horas.</p>
+    <h2>Pronto para começar?</h2>
+    <p>Entre em contato e receba um orçamento gratuito em até 24 horas.</p>
     <div class="btn-group" style="position:relative;">
         <a href="mailto:salomaomstudart@gmail.com" class="btn btn-primary">Enviar Email</a>
         <a href="https://www.linkedin.com/in/salomao-studart" class="btn btn-outline" target="_blank">LinkedIn</a>
@@ -479,10 +519,24 @@
 </section>
 
 <footer>
-    <p>&copy; 2026 Studart.Dev | Salomao Studart - Todos os direitos reservados.</p>
+    <p>&copy; 2026 Studart.Dev | Salomão Studart - Todos os direitos reservados.</p>
 </footer>
 
 <script>
+    // Hamburger menu
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('open');
+        });
+    });
+
     // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(a => {
         a.addEventListener('click', e => {
