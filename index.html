@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salomao Studart | Desenvolvimento Web, QA & Automacao</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --primary: #6C3CE1;
+            --primary-light: #8B5CF6;
+            --dark: #0F0A1A;
+            --dark-2: #1A1128;
+            --gray: #A09BB5;
+            --white: #F8F7FC;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--dark);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* NAV */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: rgba(15,10,26,0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(108,60,225,0.15);
+        }
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary-light), #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a {
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover { color: var(--white); }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(108,60,225,0.25), transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+        .hero-content { position: relative; max-width: 700px; }
+        .hero-badge {
+            display: inline-block;
+            padding: 0.4rem 1.2rem;
+            border: 1px solid rgba(108,60,225,0.4);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--primary-light);
+            margin-bottom: 1.5rem;
+            background: rgba(108,60,225,0.08);
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 1.2rem;
+        }
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--primary-light), #c084fc, #e879f9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--gray);
+            margin-bottom: 2.5rem;
+            max-width: 520px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .btn-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .btn {
+            padding: 0.85rem 2rem;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: none;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            box-shadow: 0 4px 25px rgba(108,60,225,0.35);
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 35px rgba(108,60,225,0.5);
+        }
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .btn-outline:hover {
+            border-color: var(--primary-light);
+            background: rgba(108,60,225,0.08);
+        }
+
+        /* SECTIONS */
+        section { padding: 5rem 2rem; }
+        .section-title {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+        .section-title h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+        }
+        .section-title p {
+            color: var(--gray);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* SERVICES */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .service-card {
+            background: var(--dark-2);
+            border: 1px solid rgba(108,60,225,0.12);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s;
+        }
+        .service-card:hover {
+            border-color: rgba(108,60,225,0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 40px rgba(108,60,225,0.12);
+        }
+        .service-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(108,60,225,0.2), rgba(192,132,252,0.15));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.2rem;
+        }
+        .service-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.6rem;
+        }
+        .service-card p {
+            color: var(--gray);
+            font-size: 0.92rem;
+        }
+        .service-price {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            color: var(--primary-light);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        /* PORTFOLIO */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .portfolio-card {
+            border-radius: 16px;
+            overflow: hidden;
+            background: var(--dark-2);
+            border: 1px solid rgba(108,60,225,0.1);
+            transition: all 0.3s;
+        }
+        .portfolio-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 40px rgba(108,60,225,0.15);
+        }
+        .portfolio-preview {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .portfolio-preview.p1 { background: linear-gradient(135deg, #1a0a2e, #2d1b4e); }
+        .portfolio-preview.p2 { background: linear-gradient(135deg, #0a1a2e, #1b2d4e); }
+        .portfolio-preview.p3 { background: linear-gradient(135deg, #1a2e0a, #2d4e1b); }
+        .portfolio-info { padding: 1.5rem; }
+        .portfolio-info h3 { font-size: 1.1rem; margin-bottom: 0.4rem; }
+        .portfolio-info p { color: var(--gray); font-size: 0.88rem; }
+        .portfolio-tags { display: flex; gap: 0.5rem; margin-top: 0.8rem; flex-wrap: wrap; }
+        .tag {
+            padding: 0.25rem 0.7rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            background: rgba(108,60,225,0.12);
+            color: var(--primary-light);
+        }
+
+        /* PROCESS */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .step {
+            text-align: center;
+            padding: 1.5rem;
+        }
+        .step-num {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin: 0 auto 1rem;
+        }
+        .step h3 { margin-bottom: 0.5rem; font-size: 1.05rem; }
+        .step p { color: var(--gray); font-size: 0.9rem; }
+
+        /* CTA */
+        .cta {
+            text-align: center;
+            padding: 5rem 2rem;
+            position: relative;
+        }
+        .cta::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(108,60,225,0.2), transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+        .cta h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+        .cta p {
+            color: var(--gray);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            position: relative;
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(108,60,225,0.1);
+            color: var(--gray);
+            font-size: 0.85rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .nav-links { display: none; }
+            section { padding: 3rem 1.2rem; }
+        }
+
+        /* ANIMATIONS */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate { animation: fadeUp 0.7s ease forwards; }
+        .delay-1 { animation-delay: 0.15s; opacity: 0; }
+        .delay-2 { animation-delay: 0.3s; opacity: 0; }
+        .delay-3 { animation-delay: 0.45s; opacity: 0; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">Studart.Dev</div>
+    <ul class="nav-links">
+        <li><a href="#servicos">Servicos</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#processo">Como Funciona</a></li>
+        <li><a href="#contato">Contato</a></li>
+        <li><a href="https://www.linkedin.com/in/salomao-studart" target="_blank">LinkedIn</a></li>
+        <li><a href="https://github.com/salomaostudart" target="_blank">GitHub</a></li>
+    </ul>
+</nav>
+
+<section class="hero">
+    <div class="hero-content">
+        <div class="hero-badge animate">Disponivel para projetos</div>
+        <h1 class="animate delay-1">Salomao Studart<br><span>Dev Web, QA & Automacao</span></h1>
+        <p class="animate delay-2">Desenvolvimento web profissional, landing pages que convertem, qualidade de software e automacoes inteligentes. Experiencia real em projetos de missao critica.</p>
+        <div class="btn-group animate delay-3">
+            <a href="mailto:salomaomstudart@gmail.com" class="btn btn-primary">Solicitar Orcamento</a>
+            <a href="#portfolio" class="btn btn-outline">Ver Portfolio</a>
+        </div>
+    </div>
+</section>
+
+<section id="servicos">
+    <div class="section-title">
+        <h2>Servicos</h2>
+        <p>Solucoes sob medida para cada necessidade do seu negocio</p>
+    </div>
+    <div class="services-grid">
+        <div class="service-card">
+            <div class="service-icon">&#127760;</div>
+            <h3>Landing Pages</h3>
+            <p>Paginas de alta conversao para captar clientes, vender produtos ou divulgar servicos.</p>
+            <div class="service-price">A partir de R$ 297</div>
+        </div>
+        <div class="service-card">
+            <div class="service-icon">&#128187;</div>
+            <h3>Sites Institucionais</h3>
+            <p>Sites completos e profissionais para empresas, escritorios e profissionais liberais.</p>
+            <div class="service-price">A partir de R$ 497</div>
+        </div>
+        <div class="service-card">
+            <div class="service-icon">&#9889;</div>
+            <h3>Automacoes</h3>
+            <p>Bots para WhatsApp, Telegram, automacao de planilhas e integracao entre sistemas.</p>
+            <div class="service-price">A partir de R$ 197</div>
+        </div>
+        <div class="service-card">
+            <div class="service-icon">&#128269;</div>
+            <h3>QA & Testes</h3>
+            <p>Testes de qualidade, validacao de dados, testes de integracao e pipelines. Experiencia com ONS e sistemas criticos.</p>
+            <div class="service-price">A partir de R$ 150/h</div>
+        </div>
+        <div class="service-card">
+            <div class="service-icon">&#128736;</div>
+            <h3>Manutencao e Correcoes</h3>
+            <p>Correcao de bugs, atualizacoes, melhorias de performance e suporte tecnico.</p>
+            <div class="service-price">A partir de R$ 97/h</div>
+        </div>
+        <div class="service-card">
+            <div class="service-icon">&#128202;</div>
+            <h3>Consultoria de Dados</h3>
+            <p>Validacao de qualidade de dados, SQL, integracao de sistemas e pipelines ETL.</p>
+            <div class="service-price">A partir de R$ 150/h</div>
+        </div>
+    </div>
+</section>
+
+<section id="portfolio" style="background: var(--dark-2);">
+    <div class="section-title">
+        <h2>Portfolio</h2>
+        <p>Alguns dos meus trabalhos recentes</p>
+    </div>
+    <div class="portfolio-grid">
+        <div class="portfolio-card">
+            <div class="portfolio-preview p1">&#127869;</div>
+            <div class="portfolio-info">
+                <h3>Restaurante Sabor & Arte</h3>
+                <p>Landing page completa com cardapio digital e reservas online.</p>
+                <div class="portfolio-tags">
+                    <span class="tag">Landing Page</span>
+                    <span class="tag">Responsivo</span>
+                    <span class="tag">SEO</span>
+                </div>
+            </div>
+        </div>
+        <div class="portfolio-card">
+            <div class="portfolio-preview p2">&#9878;</div>
+            <div class="portfolio-info">
+                <h3>Silva & Associados Advocacia</h3>
+                <p>Site institucional para escritorio de advocacia com formulario de consulta.</p>
+                <div class="portfolio-tags">
+                    <span class="tag">Site Institucional</span>
+                    <span class="tag">Formulario</span>
+                </div>
+            </div>
+        </div>
+        <div class="portfolio-card">
+            <div class="portfolio-preview p3">&#9986;</div>
+            <div class="portfolio-info">
+                <h3>Barbearia Classic</h3>
+                <p>Landing page moderna com agendamento online e galeria de cortes.</p>
+                <div class="portfolio-tags">
+                    <span class="tag">Landing Page</span>
+                    <span class="tag">Agendamento</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="processo">
+    <div class="section-title">
+        <h2>Como Funciona</h2>
+        <p>Processo simples e transparente em 4 etapas</p>
+    </div>
+    <div class="process-steps">
+        <div class="step">
+            <div class="step-num">1</div>
+            <h3>Briefing</h3>
+            <p>Voce me conta o que precisa. Entendo seu negocio e objetivos.</p>
+        </div>
+        <div class="step">
+            <div class="step-num">2</div>
+            <h3>Proposta</h3>
+            <p>Envio orcamento detalhado com prazo e escopo claros.</p>
+        </div>
+        <div class="step">
+            <div class="step-num">3</div>
+            <h3>Desenvolvimento</h3>
+            <p>Crio seu projeto com atualizacoes frequentes do progresso.</p>
+        </div>
+        <div class="step">
+            <div class="step-num">4</div>
+            <h3>Entrega</h3>
+            <p>Projeto publicado, testado e funcionando. Suporte incluso.</p>
+        </div>
+    </div>
+</section>
+
+<section class="cta" id="contato">
+    <h2>Pronto para comecar?</h2>
+    <p>Entre em contato e receba um orcamento gratuito em ate 24 horas.</p>
+    <div class="btn-group" style="position:relative;">
+        <a href="mailto:salomaomstudart@gmail.com" class="btn btn-primary">Enviar Email</a>
+        <a href="https://www.linkedin.com/in/salomao-studart" class="btn btn-outline" target="_blank">LinkedIn</a>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2026 Studart.Dev | Salomao Studart - Todos os direitos reservados.</p>
+</footer>
+
+<script>
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+            e.preventDefault();
+            document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+
+    // Scroll animations
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.animation = 'fadeUp 0.6s ease forwards';
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.service-card, .portfolio-card, .step').forEach(el => {
+        el.style.opacity = '0';
+        observer.observe(el);
+    });
+</script>
+
+</body>
+</html>
