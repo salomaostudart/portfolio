@@ -6,6 +6,10 @@
     <title>Salomão Studart | Desenvolvimento Web, QA & Automação</title>
     <meta name="description" content="Desenvolvedor web freelancer especializado em landing pages, sites responsivos e QA. Solicite um orçamento gratuito.">
     <meta name="theme-color" content="#6C3CE1">
+    <meta property="og:title" content="Salomão Studart | Desenvolvedor Web & QA">
+    <meta property="og:description" content="Desenvolvedor web freelancer especializado em landing pages, sites responsivos e QA.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://salomaostudart.github.io/portfolio/">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -361,11 +365,26 @@
         .delay-1 { animation-delay: 0.15s; opacity: 0; }
         .delay-2 { animation-delay: 0.3s; opacity: 0; }
         .delay-3 { animation-delay: 0.45s; opacity: 0; }
+
+        /* ACCESSIBILITY */
+        .skip-link {
+            position: absolute;
+            top: -100%;
+            left: 0;
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            z-index: 200;
+            font-size: 0.9rem;
+        }
+        .skip-link:focus { top: 0; }
     </style>
 </head>
 <body>
 
-<nav>
+<a href="#servicos" class="skip-link">Pular para o conteúdo</a>
+
+<nav role="navigation" aria-label="Menu principal">
     <div class="logo">Studart.Dev</div>
     <ul class="nav-links" id="navLinks">
         <li><a href="#servicos">Serviços</a></li>
