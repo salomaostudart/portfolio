@@ -1,31 +1,31 @@
-# Salomao Studart — Portfolio
+# Salomão Studart — Portfólio
 
-Site pessoal com meus servicos, projetos e informacoes de contato.
+Site pessoal com meus serviços, projetos e informações de contato.
 
 ## Sobre
 
-Desenvolvedor Web e QA Analyst com experiencia em criacao de landing pages, sites institucionais e testes de software. Foco em entregas rapidas, codigo limpo e design responsivo.
+Desenvolvedor Web e QA Analyst com experiência em criação de landing pages, sites institucionais e testes de software. Foco em entregas rápidas, código limpo e design responsivo.
 
 ## Tecnologias
 
 - HTML5, CSS3, JavaScript
 - Design responsivo (mobile-first)
-- GitHub Pages (deploy automatico)
+- GitHub Pages (deploy automático)
 
 ## Projetos em destaque
 
-| Projeto | Descricao | Link |
+| Projeto | Descrição | Link |
 |---|---|---|
 | Landing Restaurante | Landing page para restaurante premium | [Ver site](https://salomaostudart.github.io/landing-restaurante/) |
-| Landing Advocacia | Site institucional para escritorio de advocacia | [Ver site](https://salomaostudart.github.io/landing-advogado/) |
+| Landing Advocacia | Site institucional para escritório de advocacia | [Ver site](https://salomaostudart.github.io/landing-advogado/) |
 | Landing Barbearia | Landing page para barbearia | [Ver site](https://salomaostudart.github.io/landing-barbearia/) |
 
 ## Contato
 
 - Email: salomaomstudart@gmail.com
-- LinkedIn: [linkedin.com/in/salomaostudart](https://linkedin.com/in/salomaostudart)
+- LinkedIn: [linkedin.com/in/salomao-studart](https://www.linkedin.com/in/salomao-studart)
 - GitHub: [github.com/salomaostudart](https://github.com/salomaostudart)
 
-## Licenca
+## Licença
 
-Este projeto e de uso pessoal. Todos os direitos reservados.
+Este projeto é de uso pessoal. Todos os direitos reservados.
