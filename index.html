@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Salomão Studart | Desenvolvimento Web, QA & Automação</title>
+    <title>Salomão Studart | Desenvolvimento Web, QA & Dados</title>
     <meta name="description" content="Desenvolvedor web freelancer especializado em landing pages, sites responsivos e QA. Solicite um orçamento gratuito.">
     <meta name="theme-color" content="#6C3CE1">
     <meta property="og:title" content="Salomão Studart | Desenvolvedor Web & QA">
@@ -580,6 +580,7 @@
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
                 entry.target.style.animation = 'fadeUp 0.6s ease forwards';
             }
         });
@@ -587,8 +588,16 @@
 
     document.querySelectorAll('.service-card, .portfolio-card, .step').forEach(el => {
         el.style.opacity = '0';
+        el.style.transition = 'opacity 0.3s';
         observer.observe(el);
     });
+
+    // Fallback: se o observer nao disparar em 3s, tornar tudo visivel
+    setTimeout(() => {
+        document.querySelectorAll('.service-card, .portfolio-card, .step').forEach(el => {
+            if (el.style.opacity === '0') el.style.opacity = '1';
+        });
+    }, 3000);
 </script>
 
 </body>
