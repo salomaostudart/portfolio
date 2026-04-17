@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Salomão Studart | Software Developer | AI-Augmented | Quality-Driven</title>
-    <meta name="description" content="Desenvolvedor de Software focado em AI-Augmented Workflows com background em Engenharia de Qualidade. Projetos técnicos em produção.">
+    <title>Salomão Studart | Software Developer · Studio de software sob medida</title>
+    <meta name="description" content="Desenvolvedor de software full-stack focado em aplicações production-ready com Python, TypeScript e Cloudflare. 2+ anos entregando com mindset de qualidade — do código ao deploy.">
     <link rel="canonical" href="https://salomaostudart.github.io/portfolio/">
     <meta name="theme-color" content="#6C3CE1">
     <meta name="google-site-verification" content="16D75NppxZCpgnEqX1nQXDUzCcrbBGKYJpu_4_lzHzA" />
-    <meta property="og:title" content="Salomão Studart | Software Developer | AI-Augmented | Quality-Driven">
-    <meta property="og:description" content="Desenvolvedor de Software focado em AI-Augmented Workflows com background em Engenharia de Qualidade. Projetos técnicos em produção.">
+    <meta property="og:title" content="Salomão Studart | Software Developer · Studio de software sob medida">
+    <meta property="og:description" content="Desenvolvedor de software full-stack focado em aplicações production-ready com Python, TypeScript e Cloudflare. 2+ anos entregando com mindset de qualidade.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://salomaostudart.github.io/portfolio/">
     <meta property="og:image" content="/og-cover.png">
@@ -25,13 +25,19 @@
         :root {
             --primary: #6C3CE1;
             --primary-light: #8B5CF6;
+            --primary-glow: #c084fc;
             --dark: #0F0A1A;
             --dark-2: #1A1128;
+            --dark-3: #231737;
             --gray: #A09BB5;
+            --gray-2: #6B6580;
             --white: #F8F7FC;
+            --accent: #e879f9;
+            --success: #4ade80;
+            --warning: #fbbf24;
         }
 
-        html { overflow-x: hidden; }
+        html { overflow-x: hidden; scroll-behavior: smooth; }
         body {
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             background: var(--dark);
@@ -58,7 +64,7 @@
         .logo {
             font-size: 1.4rem;
             font-weight: 700;
-            background: linear-gradient(135deg, var(--primary-light), #c084fc);
+            background: linear-gradient(135deg, var(--primary-light), var(--primary-glow));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -106,17 +112,19 @@
         .hero::before {
             content: '';
             position: absolute;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(108,60,225,0.25), transparent 70%);
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(108,60,225,0.28), transparent 70%);
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             pointer-events: none;
         }
-        .hero-content { position: relative; max-width: 700px; }
+        .hero-content { position: relative; max-width: 760px; }
         .hero-badge {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
             padding: 0.4rem 1.2rem;
             border: 1px solid rgba(108,60,225,0.4);
             border-radius: 50px;
@@ -125,24 +133,38 @@
             margin-bottom: 1.5rem;
             background: rgba(108,60,225,0.08);
         }
+        .hero-badge .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--success);
+            box-shadow: 0 0 8px var(--success);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 3.3rem;
             font-weight: 800;
             line-height: 1.15;
-            margin-bottom: 1.2rem;
+            margin-bottom: 0.8rem;
         }
-        .hero h1 span {
-            background: linear-gradient(135deg, var(--primary-light), #c084fc, #e879f9);
+        .hero h1 .subtitle {
+            display: block;
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin-top: 0.6rem;
+            background: linear-gradient(135deg, var(--primary-light), var(--primary-glow), var(--accent));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         .hero p {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             color: var(--gray);
-            margin-bottom: 2.5rem;
-            max-width: 520px;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 1.5rem auto 2.5rem;
+            max-width: 580px;
         }
         .btn-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
         .btn {
@@ -154,6 +176,9 @@
             text-decoration: none;
             transition: all 0.3s;
             border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
         }
         .btn-primary {
             background: linear-gradient(135deg, var(--primary), var(--primary-light));
@@ -173,6 +198,13 @@
             border-color: var(--primary-light);
             background: rgba(108,60,225,0.08);
         }
+        .btn-ghost {
+            background: transparent;
+            color: var(--gray);
+            padding: 0.5rem 0.8rem;
+            font-size: 0.9rem;
+        }
+        .btn-ghost:hover { color: var(--white); }
 
         /* SECTIONS */
         section { padding: 5rem 2rem; scroll-margin-top: 80px; }
@@ -187,182 +219,377 @@
         }
         .section-title p {
             color: var(--gray);
-            max-width: 500px;
+            max-width: 560px;
             margin: 0 auto;
         }
 
-        /* SERVICES */
-        .services-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1.5rem;
-            max-width: 1100px;
+        /* PROJECTS (accordion cards) */
+        .projects-list {
+            max-width: 900px;
             margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
         }
-        .service-card {
-            flex: 0 1 calc(33.333% - 1.5rem);
-            min-width: 280px;
+        .project-card {
             background: var(--dark-2);
             border: 1px solid rgba(108,60,225,0.12);
             border-radius: 16px;
-            padding: 2rem;
+            overflow: hidden;
             transition: all 0.3s;
         }
-        .service-card:hover {
-            border-color: rgba(108,60,225,0.4);
-            transform: translateY(-4px);
+        .project-card:hover {
+            border-color: rgba(108,60,225,0.35);
+        }
+        .project-card.open {
+            border-color: rgba(108,60,225,0.5);
             box-shadow: 0 8px 40px rgba(108,60,225,0.12);
         }
-        .service-icon {
-            width: 50px;
-            height: 50px;
+        .project-header {
+            width: 100%;
+            padding: 1.8rem 2rem;
+            background: none;
+            border: none;
+            color: inherit;
+            cursor: pointer;
+            text-align: left;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 1rem;
+            align-items: center;
+            font-family: inherit;
+        }
+        .project-main h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+        .project-status {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 0.25rem 0.6rem;
+            border-radius: 6px;
+            background: rgba(108,60,225,0.15);
+            color: var(--primary-light);
+        }
+        .project-status.live {
+            background: rgba(74,222,128,0.12);
+            color: var(--success);
+        }
+        .project-status.standby {
+            background: rgba(251,191,36,0.12);
+            color: var(--warning);
+        }
+        .project-tagline {
+            color: var(--gray);
+            font-size: 0.98rem;
+            margin-bottom: 0.8rem;
+        }
+        .project-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 1.2rem;
+            align-items: center;
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+        .project-metric {
+            color: var(--white);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .project-metric::before {
+            content: '';
+            width: 4px;
+            height: 4px;
+            background: var(--primary-light);
+            border-radius: 50%;
+        }
+        .project-tags {
+            display: flex;
+            gap: 0.4rem;
+            flex-wrap: wrap;
+        }
+        .tag {
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+            font-size: 0.72rem;
+            background: rgba(108,60,225,0.12);
+            color: var(--primary-light);
+        }
+        .chevron {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: rgba(108,60,225,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            flex-shrink: 0;
+        }
+        .chevron svg {
+            width: 14px;
+            height: 14px;
+            transition: transform 0.3s;
+        }
+        .project-card.open .chevron {
+            background: var(--primary-light);
+        }
+        .project-card.open .chevron svg {
+            transform: rotate(180deg);
+        }
+        .project-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+        .project-card.open .project-details {
+            max-height: 2000px;
+        }
+        .project-details-inner {
+            padding: 0 2rem 2rem;
+            border-top: 1px solid rgba(108,60,225,0.1);
+            padding-top: 1.5rem;
+        }
+        .project-section-title {
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--primary-light);
+            margin-bottom: 0.6rem;
+            margin-top: 1.5rem;
+        }
+        .project-section-title:first-child { margin-top: 0; }
+        .project-problem {
+            color: var(--gray);
+            margin-bottom: 0;
+        }
+        .project-features {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 0.9rem;
+        }
+        .project-features li {
+            padding: 0.9rem 1rem;
+            background: var(--dark-3);
+            border-radius: 10px;
+            font-size: 0.92rem;
+            color: var(--gray);
+            border-left: 2px solid var(--primary-light);
+        }
+        .project-features li strong {
+            color: var(--white);
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+        .project-numbers {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 0.8rem;
+        }
+        .project-numbers > div {
+            padding: 0.9rem;
+            background: var(--dark-3);
+            border-radius: 10px;
+            text-align: center;
+        }
+        .project-numbers strong {
+            display: block;
+            font-size: 1.2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary-light), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .project-numbers span {
+            font-size: 0.72rem;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .project-actions {
+            display: flex;
+            gap: 0.8rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        /* CAPABILITIES */
+        .capabilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.2rem;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+        .capability {
+            padding: 1.5rem;
+            background: var(--dark-2);
+            border: 1px solid rgba(108,60,225,0.1);
             border-radius: 12px;
+            transition: all 0.3s;
+        }
+        .capability:hover {
+            border-color: rgba(108,60,225,0.3);
+            transform: translateY(-2px);
+        }
+        .capability-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
             background: linear-gradient(135deg, rgba(108,60,225,0.2), rgba(192,132,252,0.15));
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--primary-light);
-            margin-bottom: 1.2rem;
+            margin-bottom: 1rem;
         }
-        .service-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.6rem;
+        .capability h3 {
+            font-size: 1rem;
+            margin-bottom: 0.4rem;
         }
-        .service-card p {
+        .capability p {
             color: var(--gray);
-            font-size: 0.92rem;
+            font-size: 0.88rem;
         }
-        .service-price {
-            margin-top: 1rem;
-            padding-top: 1rem;
-            border-top: 1px solid rgba(255,255,255,0.06);
-            color: var(--primary-light);
-            font-weight: 700;
-            font-size: 1.1rem;
-        }
-
-        /* PORTFOLIO */
-        .portfolio-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1.5rem;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-        .portfolio-card {
-            flex: 0 1 calc(50% - 1.5rem);
-            min-width: 300px;
-            border-radius: 16px;
-            overflow: hidden;
-            background: var(--dark-2);
-            border: 1px solid rgba(108,60,225,0.1);
-            transition: all 0.3s;
-        }
-        .portfolio-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 40px rgba(108,60,225,0.15);
-        }
-        .portfolio-preview {
-            height: 200px;
-            background-size: cover;
-            background-position: center;
-            position: relative;
-            overflow: hidden;
-        }
-        .portfolio-preview.p1 { background-color: #1a0a2e; }
-        .portfolio-preview.p2 { background-color: #0a1a2e; }
-        .portfolio-preview.p3 { background-color: #1a2e0a; }
-        .portfolio-preview.p4 { background-color: #0a2e1a; }
-        .portfolio-info { padding: 1.5rem; }
-        .portfolio-info h3 { font-size: 1.1rem; margin-bottom: 0.4rem; }
-        .portfolio-info p { color: var(--gray); font-size: 0.88rem; }
-        .portfolio-tags { display: flex; gap: 0.5rem; margin-top: 0.8rem; flex-wrap: wrap; }
-        .tag {
-            padding: 0.25rem 0.7rem;
-            border-radius: 6px;
-            font-size: 0.75rem;
-            background: rgba(108,60,225,0.12);
-            color: var(--primary-light);
-        }
-
-        /* PROCESS */
-        .process-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 2rem;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        .step {
+        .availability-note {
             text-align: center;
-            padding: 1.5rem;
+            margin-top: 2.5rem;
+            color: var(--gray);
+            font-size: 0.95rem;
         }
-        .step-num {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+        .availability-note strong { color: var(--white); }
+
+        /* CONTACT FORM */
+        .contact-wrap {
+            max-width: 620px;
+            margin: 0 auto;
+        }
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            background: var(--dark-2);
+            border: 1px solid rgba(108,60,225,0.15);
+            border-radius: 16px;
+            padding: 2rem;
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        @media (max-width: 520px) {
+            .form-row { grid-template-columns: 1fr; }
+        }
+        .form-field { display: flex; flex-direction: column; gap: 0.4rem; }
+        .form-field label {
+            font-size: 0.82rem;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+        .form-field input,
+        .form-field select,
+        .form-field textarea {
+            background: var(--dark);
+            border: 1px solid rgba(108,60,225,0.2);
+            border-radius: 10px;
+            padding: 0.85rem 1rem;
+            color: var(--white);
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .form-field input:focus,
+        .form-field select:focus,
+        .form-field textarea:focus {
+            outline: none;
+            border-color: var(--primary-light);
+            box-shadow: 0 0 0 3px rgba(108,60,225,0.15);
+        }
+        .form-field textarea {
+            resize: vertical;
+            min-height: 130px;
+            line-height: 1.5;
+        }
+        .form-field .hint {
+            font-size: 0.78rem;
+            color: var(--gray-2);
+        }
+        .contact-form button[type="submit"] {
+            align-self: flex-start;
+        }
+        .form-alt {
+            text-align: center;
+            margin-top: 1.5rem;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        .form-alt a {
+            color: var(--primary-light);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .form-alt a:hover { text-decoration: underline; }
+        .form-alt .divider {
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            margin: 0 auto 1rem;
+            gap: 1rem;
+            margin: 1.8rem 0 1rem;
+            color: var(--gray-2);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
-        .step h3 { margin-bottom: 0.5rem; font-size: 1.05rem; }
-        .step p { color: var(--gray); font-size: 0.9rem; }
-
-        /* CTA */
-        .cta {
-            text-align: center;
-            padding: 5rem 2rem;
-            position: relative;
-            overflow: hidden;
-        }
-        .cta::before {
+        .form-alt .divider::before,
+        .form-alt .divider::after {
             content: '';
-            position: absolute;
-            width: 500px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(108,60,225,0.2), transparent 70%);
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            pointer-events: none;
-        }
-        .cta h2 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            position: relative;
-        }
-        .cta p {
-            color: var(--gray);
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
-            position: relative;
+            flex: 1;
+            height: 1px;
+            background: rgba(108,60,225,0.15);
         }
 
         /* FOOTER */
         footer {
-            padding: 2rem;
+            padding: 2.5rem 2rem;
             text-align: center;
             border-top: 1px solid rgba(108,60,225,0.1);
             color: var(--gray);
             font-size: 0.85rem;
         }
+        footer p { margin-bottom: 0.5rem; }
+        footer .footer-meta {
+            font-size: 0.78rem;
+            color: var(--gray-2);
+            margin-top: 0.8rem;
+        }
 
         /* RESPONSIVE */
         @media (max-width: 1024px) and (min-width: 769px) {
             .hero h1 { font-size: 2.6rem; }
+            .hero h1 .subtitle { font-size: 1.2rem; }
             section { padding: 4rem 1.5rem; }
             .nav-links { gap: 1.2rem; }
-            .nav-links a { font-size: 0.8rem; }
+            .nav-links a { font-size: 0.85rem; }
         }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
+            .hero h1 { font-size: 2.1rem; }
+            .hero h1 .subtitle { font-size: 1.1rem; }
+            .hero p { font-size: 1rem; }
             .hamburger { display: flex; }
             .nav-links {
                 display: none;
@@ -377,18 +604,11 @@
                 border-bottom: 1px solid rgba(108,60,225,0.15);
             }
             .nav-links.open { display: flex; }
-            section { padding: 3rem 1.2rem; }
+            section { padding: 3.5rem 1.2rem; }
+            .project-header { padding: 1.4rem 1.3rem; }
+            .project-details-inner { padding: 1.3rem 1.3rem 1.8rem; }
+            .contact-form { padding: 1.5rem; }
         }
-
-        /* ANIMATIONS */
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .animate { animation: fadeUp 0.9s cubic-bezier(0.25, 0.1, 0.25, 1) forwards; }
-        .delay-1 { animation-delay: 0.15s; opacity: 0; }
-        .delay-2 { animation-delay: 0.3s; opacity: 0; }
-        .delay-3 { animation-delay: 0.45s; opacity: 0; }
 
         /* ACCESSIBILITY */
         .skip-link {
@@ -450,7 +670,8 @@
 <nav role="navigation" aria-label="Menu principal">
     <div class="logo">Studart.Dev</div>
     <ul class="nav-links" id="navLinks">
-        <li><a href="#projetos-tecnicos">Projetos</a></li>
+        <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#capacidades">Capacidades</a></li>
         <li><a href="#contato">Contato</a></li>
         <li><a href="https://www.linkedin.com/in/salomao-studart" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
         <li><a href="https://github.com/salomaostudart" target="_blank" rel="noopener noreferrer">GitHub</a></li>
@@ -461,93 +682,313 @@
 </nav>
 
 <main id="main-content">
+
 <section class="hero">
     <div class="hero-content">
-        <div class="hero-badge animate">Open to Work · CLT · PJ · Remote</div>
-        <h1 class="animate delay-1">Salomão Studart<br><span>Software Developer | AI-Augmented | Quality-Driven</span></h1>
-        <p class="animate delay-2">Construo aplicações production-ready dirigindo Claude Code com mindset de validação. Background em Engenharia de Qualidade no projeto ONS — infraestrutura crítica nacional.</p>
-        <div class="btn-group animate delay-3">
-            <a href="#projetos-tecnicos" class="btn btn-primary">Ver Projetos Técnicos</a>
-            <a href="mailto:salomaostudart@gmail.com" class="btn btn-outline">Fale comigo</a>
+        <div class="hero-badge"><span class="dot"></span> Disponível · CLT · PJ · Projetos sob contrato</div>
+        <h1>
+            Salomão Studart
+            <span class="subtitle">Software Developer &amp; Studio de software sob medida</span>
+        </h1>
+        <p>Construo produtos web end-to-end com Python, TypeScript e Cloudflare. 2+ anos entregando aplicações production-ready — do código ao deploy — com mindset de qualidade vindo de engenharia de testes em infraestrutura crítica.</p>
+        <div class="btn-group">
+            <a href="#projetos" class="btn btn-primary">Ver projetos</a>
+            <a href="#contato" class="btn btn-outline">Conversar sobre projeto</a>
         </div>
     </div>
 </section>
 
-<section id="projetos-tecnicos">
+<section id="projetos">
     <div class="section-title">
-        <h2>Projetos Técnicos</h2>
-        <p>Plataformas em produção construídas com AI-Augmented workflows</p>
+        <h2>Projetos</h2>
+        <p>Três produtos construídos end-to-end — arquitetura, código, testes e deploy. Clique para ver detalhes.</p>
     </div>
-    <div class="portfolio-grid">
-        <a href="https://webscope.sal.dev.br" target="_blank" rel="noopener noreferrer" class="portfolio-card" style="text-decoration:none;color:inherit;">
-            <div class="portfolio-info">
-                <h3>WebScope</h3>
-                <p>SaaS de auditoria técnica de websites. Analyzers em Astro/TypeScript, integração Cloudflare Workers AI, OWASP audit completo.</p>
-                <div class="portfolio-tags">
-                    <span class="tag">Astro</span>
-                    <span class="tag">TypeScript</span>
-                    <span class="tag">Cloudflare Workers AI</span>
-                    <span class="tag">OWASP</span>
+    <div class="projects-list">
+
+        <!-- WebScope -->
+        <article class="project-card" data-project="webscope">
+            <button class="project-header" aria-expanded="false" aria-controls="details-webscope">
+                <div class="project-main">
+                    <h3>WebScope <span class="project-status">Pre-release</span></h3>
+                    <p class="project-tagline">Website intelligence em um único relatório — score 0–100 em 6 dimensões com quick wins priorizados por IA.</p>
+                    <div class="project-meta">
+                        <span class="project-metric">168 tests passing</span>
+                        <div class="project-tags">
+                            <span class="tag">TypeScript</span>
+                            <span class="tag">Astro</span>
+                            <span class="tag">Cloudflare Workers</span>
+                            <span class="tag">Workers AI</span>
+                            <span class="tag">D1</span>
+                        </div>
+                    </div>
+                </div>
+                <span class="chevron" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </span>
+            </button>
+            <div class="project-details" id="details-webscope" role="region">
+                <div class="project-details-inner">
+                    <h4 class="project-section-title">Problema</h4>
+                    <p class="project-problem">Auditar um site exige abrir dezenas de ferramentas separadas — Lighthouse, axe, checkers de SEO, scanners de segurança — e o resultado fica fragmentado, sem priorização clara. WebScope unifica performance, SEO, acessibilidade, conteúdo, segurança e branding em um único score 0–100 por categoria, com quick wins priorizados por IA e histórico persistido para comparação temporal.</p>
+
+                    <h4 class="project-section-title">Features</h4>
+                    <ul class="project-features">
+                        <li><strong>Score unificado 0–100</strong>81+ checks automatizados em 6 categorias com grade A–F ponderada</li>
+                        <li><strong>Quick wins por IA</strong>Sumário executivo gerado por Cloudflare Workers AI (Qwen2.5) — zero custo de inferência</li>
+                        <li><strong>Severity-tagged findings</strong>Critical / warning / info / pass, com drill-down por categoria e link para remediação</li>
+                        <li><strong>Persistente + comparável</strong>Cada auditoria em D1 com share link único e diff side-by-side entre snapshots</li>
+                    </ul>
+
+                    <h4 class="project-section-title">Stack completo</h4>
+                    <div class="project-tags">
+                        <span class="tag">TypeScript</span>
+                        <span class="tag">Astro 6</span>
+                        <span class="tag">Cloudflare Pages</span>
+                        <span class="tag">Cloudflare Workers</span>
+                        <span class="tag">D1 (SQLite)</span>
+                        <span class="tag">Workers AI (Qwen2.5)</span>
+                        <span class="tag">KV</span>
+                        <span class="tag">Zod 4</span>
+                        <span class="tag">ECharts 6</span>
+                        <span class="tag">Vitest</span>
+                        <span class="tag">Playwright + axe-core</span>
+                    </div>
+
+                    <h4 class="project-section-title">Números</h4>
+                    <div class="project-numbers">
+                        <div><strong>168</strong><span>Tests passing</span></div>
+                        <div><strong>81+</strong><span>Checks automáticos</span></div>
+                        <div><strong>27</strong><span>Pull requests</span></div>
+                        <div><strong>6</strong><span>Categories</span></div>
+                        <div><strong>$0</strong><span>Infra / mês</span></div>
+                    </div>
+
+                    <div class="project-actions">
+                        <a href="https://webscope.sal.dev.br" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Testar WebScope</a>
+                        <span class="btn btn-ghost" style="cursor: default;">Access code: <code style="color: var(--primary-light); margin-left: 0.3rem;">saldev-preview</code></span>
+                    </div>
                 </div>
             </div>
-        </a>
-        <a href="https://growth.sal.dev.br" target="_blank" rel="noopener noreferrer" class="portfolio-card" style="text-decoration:none;color:inherit;">
-            <div class="portfolio-info">
-                <h3>Growth Dashboard</h3>
-                <p>Dashboard unificado com MCP server próprio queryável por Claude Code. Connector pattern extensível, Python automation (GA4/GSC).</p>
-                <div class="portfolio-tags">
-                    <span class="tag">Astro</span>
-                    <span class="tag">Supabase</span>
-                    <span class="tag">MCP SDK</span>
-                    <span class="tag">Python</span>
+        </article>
+
+        <!-- Growth Dashboard -->
+        <article class="project-card" data-project="growth">
+            <button class="project-header" aria-expanded="false" aria-controls="details-growth">
+                <div class="project-main">
+                    <h3>Growth Dashboard <span class="project-status live">Live · Invite-only</span></h3>
+                    <p class="project-tagline">Dashboard unificado de métricas digitais — do SEO ao CRM em um único painel, com MCP server próprio queryável por agentes de IA.</p>
+                    <div class="project-meta">
+                        <span class="project-metric">71 tests + 38 E2E specs</span>
+                        <div class="project-tags">
+                            <span class="tag">Astro</span>
+                            <span class="tag">TypeScript</span>
+                            <span class="tag">ECharts</span>
+                            <span class="tag">Supabase</span>
+                            <span class="tag">MCP SDK</span>
+                        </div>
+                    </div>
+                </div>
+                <span class="chevron" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </span>
+            </button>
+            <div class="project-details" id="details-growth" role="region">
+                <div class="project-details-inner">
+                    <h4 class="project-section-title">Problema</h4>
+                    <p class="project-problem">Times de marketing operam com dados fragmentados entre GA4, Search Console, email marketing, social e CRM. Ferramentas enterprise custam caro; soluções genéricas entregam pouco contexto. Resultado: decisões tomadas no escuro ou com dados defasados. O Growth Dashboard consolida todas as fontes em um único painel estático, com anomalias detectadas por regras determinísticas e queryable via agentes de IA.</p>
+
+                    <h4 class="project-section-title">Features</h4>
+                    <ul class="project-features">
+                        <li><strong>Connector Pattern</strong>Adicionar nova fonte = implementar uma interface tipada. Trocar mock por dado real = 1 env var</li>
+                        <li><strong>MCP Server próprio</strong>13 tools (9 leitura + 4 escrita) expõem o dashboard para Claude Code via stdio</li>
+                        <li><strong>Insights Engine</strong>22 regras rule-based detectam anomalias sem depender de LLM — totalmente auditável</li>
+                        <li><strong>Multi-dispositivo</strong>PWA com suporte offline, safe areas iOS, touch targets e variáveis dvh</li>
+                    </ul>
+
+                    <h4 class="project-section-title">Stack completo</h4>
+                    <div class="project-tags">
+                        <span class="tag">Astro 6</span>
+                        <span class="tag">TypeScript</span>
+                        <span class="tag">Apache ECharts 6</span>
+                        <span class="tag">Zod 4</span>
+                        <span class="tag">Supabase (RLS)</span>
+                        <span class="tag">MCP SDK</span>
+                        <span class="tag">Python (GA4/GSC)</span>
+                        <span class="tag">Vitest</span>
+                        <span class="tag">Playwright + axe</span>
+                        <span class="tag">Cloudflare Pages</span>
+                        <span class="tag">GitHub Actions</span>
+                    </div>
+
+                    <h4 class="project-section-title">Números</h4>
+                    <div class="project-numbers">
+                        <div><strong>71</strong><span>Unit tests</span></div>
+                        <div><strong>38</strong><span>E2E specs</span></div>
+                        <div><strong>8</strong><span>Dashboards</span></div>
+                        <div><strong>13</strong><span>MCP tools</span></div>
+                        <div><strong>22</strong><span>Rule-based checks</span></div>
+                    </div>
+
+                    <div class="project-actions">
+                        <a href="https://growth.sal.dev.br" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Ver demo</a>
+                        <span class="btn btn-ghost" style="cursor: default;">Acesso sob convite — solicitar pelo formulário</span>
+                    </div>
                 </div>
             </div>
-        </a>
-        <a href="https://gtd.sal.dev.br" target="_blank" rel="noopener noreferrer" class="portfolio-card" style="text-decoration:none;color:inherit;">
-            <div class="portfolio-info">
-                <h3>GTD App</h3>
-                <p>PWA full-stack offline-first com Supabase Auth real (2FA email OTP). Vanilla JS production-grade.</p>
-                <div class="portfolio-tags">
-                    <span class="tag">Vanilla JS</span>
-                    <span class="tag">Supabase</span>
-                    <span class="tag">PWA</span>
-                    <span class="tag">2FA</span>
+        </article>
+
+        <!-- GTD App -->
+        <article class="project-card" data-project="gtd">
+            <button class="project-header" aria-expanded="false" aria-controls="details-gtd">
+                <div class="project-main">
+                    <h3>GTD App <span class="project-status standby">Live · Standby</span></h3>
+                    <p class="project-tagline">Getting Things Done fielmente implementado no navegador — offline-first, 2FA email OTP, sem frameworks nem bundler.</p>
+                    <div class="project-meta">
+                        <span class="project-metric">5.183 linhas em 1 index.html</span>
+                        <div class="project-tags">
+                            <span class="tag">Vanilla JS</span>
+                            <span class="tag">Supabase</span>
+                            <span class="tag">PWA</span>
+                            <span class="tag">Service Worker</span>
+                            <span class="tag">2FA</span>
+                        </div>
+                    </div>
+                </div>
+                <span class="chevron" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </span>
+            </button>
+            <div class="project-details" id="details-gtd" role="region">
+                <div class="project-details-inner">
+                    <h4 class="project-section-title">Problema</h4>
+                    <p class="project-problem">Ferramentas de produtividade exigem assinaturas, onboarding longo ou não seguem o método GTD fielmente. Quem pratica GTD precisa de um sistema que implemente os 5 passos originais de David Allen sem fricção — captura rápida, processamento guiado e revisão semanal — funcionando em qualquer dispositivo, mesmo sem internet.</p>
+
+                    <h4 class="project-section-title">Features</h4>
+                    <ul class="project-features">
+                        <li><strong>Captura + Processamento</strong>Ctrl+K para captura instantânea; wizard guiado clarifica cada item do inbox</li>
+                        <li><strong>Sync multi-dispositivo</strong>Backend Supabase com JSONB e RLS; localStorage como fallback offline</li>
+                        <li><strong>PWA instalável</strong>Service Worker network-first, instalável no iOS/Android, safe areas, swipe gestures</li>
+                        <li><strong>Segurança completa</strong>Autenticação JWT, 2FA via email OTP, CSP restritivo, HSTS, sanitização XSS</li>
+                    </ul>
+
+                    <h4 class="project-section-title">Stack completo</h4>
+                    <div class="project-tags">
+                        <span class="tag">HTML5</span>
+                        <span class="tag">CSS3</span>
+                        <span class="tag">Vanilla JS (sem build)</span>
+                        <span class="tag">Supabase</span>
+                        <span class="tag">Cloudflare Pages</span>
+                        <span class="tag">Resend (email)</span>
+                        <span class="tag">Service Worker</span>
+                        <span class="tag">PWA</span>
+                    </div>
+
+                    <h4 class="project-section-title">Números</h4>
+                    <div class="project-numbers">
+                        <div><strong>5.183</strong><span>Linhas</span></div>
+                        <div><strong>17</strong><span>Features</span></div>
+                        <div><strong>6</strong><span>Contextos GTD</span></div>
+                        <div><strong>3</strong><span>Modos import</span></div>
+                        <div><strong>0</strong><span>Dependências build</span></div>
+                    </div>
+
+                    <div class="project-actions">
+                        <a href="https://metodogtd.pages.dev" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Abrir app</a>
+                    </div>
                 </div>
             </div>
-        </a>
-        <a href="https://salomaostudart.github.io/qa-demo/" target="_blank" rel="noopener noreferrer" class="portfolio-card" style="text-decoration:none;color:inherit;">
-            <div class="portfolio-info">
-                <h3>QA Demo</h3>
-                <p>Showcase QA multiplataforma — mesma aplicação testada com Cypress, Playwright, Postman e SQL queries.</p>
-                <div class="portfolio-tags">
-                    <span class="tag">Cypress</span>
-                    <span class="tag">Playwright</span>
-                    <span class="tag">Postman</span>
-                    <span class="tag">SQL</span>
-                </div>
-            </div>
-        </a>
-        <a href="https://github.com/salomaostudart/cronicas_emergentes" target="_blank" rel="noopener noreferrer" class="portfolio-card" style="text-decoration:none;color:inherit;">
-            <div class="portfolio-info">
-                <h3>Crônicas Emergentes</h3>
-                <p>RPG data-driven em Python puro com WorldState pattern. Engine modular com eventos emergentes.</p>
-                <div class="portfolio-tags">
-                    <span class="tag">Python</span>
-                    <span class="tag">WorldState</span>
-                    <span class="tag">Data-driven</span>
-                </div>
-            </div>
-        </a>
+        </article>
+
     </div>
 </section>
 
-<section class="cta" id="contato">
-    <h2>Vamos conversar?</h2>
-    <p>Aberto a oportunidades CLT, PJ e projetos remotos. Respondo em até 24 horas.</p>
-    <div class="btn-group" style="position:relative;">
-        <a href="mailto:salomaostudart@gmail.com" class="btn btn-primary">Enviar Email</a>
-        <a href="https://www.linkedin.com/in/salomao-studart" class="btn btn-outline" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a href="https://github.com/salomaostudart" class="btn btn-outline" target="_blank" rel="noopener noreferrer">GitHub</a>
+<section id="capacidades" style="background: var(--dark-2);">
+    <div class="section-title">
+        <h2>O que posso construir</h2>
+        <p>Categorias em que trabalho. Stack específico se adapta ao problema.</p>
+    </div>
+    <div class="capabilities-grid">
+        <div class="capability">
+            <div class="capability-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <h3>Web apps full-stack</h3>
+            <p>Aplicações completas com Astro, Next.js ou vanilla. Auth, banco, deploy edge, PWA.</p>
+        </div>
+        <div class="capability">
+            <div class="capability-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <h3>APIs &amp; automação</h3>
+            <p>Serviços Python, Node.js e Cloudflare Workers. Integrações, scraping, pipelines, jobs agendados.</p>
+        </div>
+        <div class="capability">
+            <div class="capability-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <h3>Quality engineering</h3>
+            <p>Testes E2E (Playwright, Cypress), unit (Vitest, Pytest), acessibilidade axe, auditorias OWASP.</p>
+        </div>
+        <div class="capability">
+            <div class="capability-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v6m0 10v6M4.22 4.22l4.24 4.24m7.07 7.07l4.24 4.24M1 12h6m10 0h6M4.22 19.78l4.24-4.24m7.07-7.07l4.24-4.24"/></svg>
+            </div>
+            <h3>AI-Augmented integrations</h3>
+            <p>MCP servers, Claude API, Workers AI. Agentes que consultam dados reais, não chat genérico.</p>
+        </div>
+    </div>
+    <p class="availability-note">
+        <strong>Disponível para CLT (remoto BR), PJ e projetos sob contrato.</strong><br>
+        Entregas com qualidade de produção desde o primeiro commit.
+    </p>
+</section>
+
+<section id="contato">
+    <div class="section-title">
+        <h2>Tem um projeto em mente?</h2>
+        <p>Me conte em 30 segundos o que precisa. Respondo em até 24h.</p>
+    </div>
+    <div class="contact-wrap">
+        <form class="contact-form" id="contactForm" novalidate>
+            <div class="form-row">
+                <div class="form-field">
+                    <label for="f-nome">Nome *</label>
+                    <input type="text" id="f-nome" name="nome" required autocomplete="name" maxlength="80">
+                </div>
+                <div class="form-field">
+                    <label for="f-email">Email *</label>
+                    <input type="email" id="f-email" name="email" required autocomplete="email" maxlength="120">
+                </div>
+            </div>
+            <div class="form-field">
+                <label for="f-assunto">Sobre o quê?</label>
+                <select id="f-assunto" name="assunto" required>
+                    <option value="Projeto sob contrato">Projeto sob contrato</option>
+                    <option value="Vaga CLT / PJ">Vaga CLT / PJ</option>
+                    <option value="Auditoria técnica (WebScope)">Auditoria técnica (WebScope)</option>
+                    <option value="Consultoria / dúvida técnica">Consultoria / dúvida técnica</option>
+                    <option value="Acesso Growth Dashboard">Acesso Growth Dashboard</option>
+                    <option value="Outro">Outro</option>
+                </select>
+            </div>
+            <div class="form-field">
+                <label for="f-mensagem">Mensagem *</label>
+                <textarea id="f-mensagem" name="mensagem" required minlength="20" maxlength="2000" placeholder="Conte brevemente: qual problema resolver, escala (usuários / escopo), prazo aproximado."></textarea>
+                <span class="hint">Mínimo 20 caracteres. Ao enviar, seu cliente de email abre com a mensagem pronta.</span>
+            </div>
+            <button type="submit" class="btn btn-primary">
+                Enviar proposta
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+        </form>
+        <div class="form-alt">
+            <div class="divider">ou direto</div>
+            <a href="mailto:salomaostudart@gmail.com">salomaostudart@gmail.com</a>
+            &nbsp;·&nbsp;
+            <a href="https://www.linkedin.com/in/salomao-studart" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            &nbsp;·&nbsp;
+            <a href="https://github.com/salomaostudart" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
     </div>
 </section>
 
@@ -558,7 +999,8 @@
 </button>
 
 <footer>
-    <p>&copy; 2026 Studart.Dev | Salomão Studart - Todos os direitos reservados.</p>
+    <p>© 2026 Studart.Dev · Salomão Studart</p>
+    <p class="footer-meta">Remoto do Brasil · Disponível para CLT, PJ e projetos sob contrato</p>
 </footer>
 
 <script>
@@ -576,49 +1018,67 @@
         });
     });
 
-    // Smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-        a.addEventListener('click', e => {
-            e.preventDefault();
-            document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+    // Project cards accordion
+    document.querySelectorAll('.project-header').forEach(header => {
+        header.addEventListener('click', () => {
+            const card = header.parentElement;
+            const isOpen = card.classList.contains('open');
+            card.classList.toggle('open');
+            header.setAttribute('aria-expanded', !isOpen ? 'true' : 'false');
         });
     });
 
-    // Scroll animations
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.animation = 'fadeUp 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) forwards';
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+            const target = document.querySelector(a.getAttribute('href'));
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth' });
             }
         });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.service-card, .portfolio-card, .step').forEach(el => {
-        el.style.opacity = '0';
-        el.style.transition = 'opacity 0.3s';
-        observer.observe(el);
     });
 
     // Back to top
     const backToTop = document.getElementById('backToTop');
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 400) {
-            backToTop.classList.add('visible');
-        } else {
-            backToTop.classList.remove('visible');
-        }
+        if (window.scrollY > 400) backToTop.classList.add('visible');
+        else backToTop.classList.remove('visible');
     }, { passive: true });
     backToTop.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // Fallback: se o observer nao disparar em 3s, tornar tudo visivel
-    setTimeout(() => {
-        document.querySelectorAll('.service-card, .portfolio-card, .step').forEach(el => {
-            if (el.style.opacity === '0') el.style.opacity = '1';
-        });
-    }, 3000);
+    // Contact form: build structured mailto
+    const form = document.getElementById('contactForm');
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const data = new FormData(form);
+        const nome = (data.get('nome') || '').trim();
+        const email = (data.get('email') || '').trim();
+        const assunto = (data.get('assunto') || '').trim();
+        const mensagem = (data.get('mensagem') || '').trim();
+
+        if (!nome || !email || mensagem.length < 20) {
+            form.reportValidity();
+            return;
+        }
+
+        const subject = `[Portfolio] ${assunto} — ${nome}`;
+        const bodyLines = [
+            `Nome: ${nome}`,
+            `Email: ${email}`,
+            `Assunto: ${assunto}`,
+            '',
+            'Mensagem:',
+            mensagem,
+            '',
+            '---',
+            'Enviado de salomaostudart.github.io/portfolio'
+        ];
+        const mailto = `mailto:salomaostudart@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join('\n'))}`;
+        window.location.href = mailto;
+    });
 </script>
 
 </body>
