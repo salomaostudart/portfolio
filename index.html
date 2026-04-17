@@ -561,6 +561,37 @@
             height: 1px;
             background: rgba(108,60,225,0.15);
         }
+        .form-status {
+            padding: 0.9rem 1rem;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            display: none;
+        }
+        .form-status.success {
+            display: block;
+            background: rgba(74,222,128,0.1);
+            border: 1px solid rgba(74,222,128,0.3);
+            color: var(--success);
+        }
+        .form-status.error {
+            display: block;
+            background: rgba(239,68,68,0.1);
+            border: 1px solid rgba(239,68,68,0.3);
+            color: #fca5a5;
+        }
+        .honeypot {
+            position: absolute;
+            left: -9999px;
+            opacity: 0;
+            pointer-events: none;
+            height: 0;
+            width: 0;
+            overflow: hidden;
+        }
+        button[disabled] {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
 
         /* FOOTER */
         footer {
@@ -754,15 +785,6 @@
                         <span class="tag">Playwright + axe-core</span>
                     </div>
 
-                    <h4 class="project-section-title">Números</h4>
-                    <div class="project-numbers">
-                        <div><strong>168</strong><span>Tests passing</span></div>
-                        <div><strong>81+</strong><span>Checks automáticos</span></div>
-                        <div><strong>27</strong><span>Pull requests</span></div>
-                        <div><strong>6</strong><span>Categories</span></div>
-                        <div><strong>$0</strong><span>Infra / mês</span></div>
-                    </div>
-
                     <div class="project-actions">
                         <a href="https://webscope.sal.dev.br" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Testar WebScope</a>
                         <span class="btn btn-ghost" style="cursor: default;">Access code: <code style="color: var(--primary-light); margin-left: 0.3rem;">saldev-preview</code></span>
@@ -820,15 +842,6 @@
                         <span class="tag">GitHub Actions</span>
                     </div>
 
-                    <h4 class="project-section-title">Números</h4>
-                    <div class="project-numbers">
-                        <div><strong>71</strong><span>Unit tests</span></div>
-                        <div><strong>38</strong><span>E2E specs</span></div>
-                        <div><strong>8</strong><span>Dashboards</span></div>
-                        <div><strong>13</strong><span>MCP tools</span></div>
-                        <div><strong>22</strong><span>Rule-based checks</span></div>
-                    </div>
-
                     <div class="project-actions">
                         <a href="https://growth.sal.dev.br" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Ver demo</a>
                         <span class="btn btn-ghost" style="cursor: default;">Acesso sob convite — solicitar pelo formulário</span>
@@ -883,15 +896,6 @@
                         <span class="tag">PWA</span>
                     </div>
 
-                    <h4 class="project-section-title">Números</h4>
-                    <div class="project-numbers">
-                        <div><strong>5.183</strong><span>Linhas</span></div>
-                        <div><strong>17</strong><span>Features</span></div>
-                        <div><strong>6</strong><span>Contextos GTD</span></div>
-                        <div><strong>3</strong><span>Modos import</span></div>
-                        <div><strong>0</strong><span>Dependências build</span></div>
-                    </div>
-
                     <div class="project-actions">
                         <a href="https://metodogtd.pages.dev" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Abrir app</a>
                     </div>
@@ -937,10 +941,6 @@
             <p>MCP servers, Claude API, Workers AI. Agentes que consultam dados reais, não chat genérico.</p>
         </div>
     </div>
-    <p class="availability-note">
-        <strong>Disponível para CLT (remoto BR), PJ e projetos sob contrato.</strong><br>
-        Entregas com qualidade de produção desde o primeiro commit.
-    </p>
 </section>
 
 <section id="contato">
@@ -963,20 +963,22 @@
             <div class="form-field">
                 <label for="f-assunto">Sobre o quê?</label>
                 <select id="f-assunto" name="assunto" required>
-                    <option value="Projeto sob contrato">Projeto sob contrato</option>
+                    <option value="Projeto / contrato">Projeto / contrato</option>
                     <option value="Vaga CLT / PJ">Vaga CLT / PJ</option>
-                    <option value="Auditoria técnica (WebScope)">Auditoria técnica (WebScope)</option>
-                    <option value="Consultoria / dúvida técnica">Consultoria / dúvida técnica</option>
-                    <option value="Acesso Growth Dashboard">Acesso Growth Dashboard</option>
                     <option value="Outro">Outro</option>
                 </select>
             </div>
             <div class="form-field">
                 <label for="f-mensagem">Mensagem *</label>
                 <textarea id="f-mensagem" name="mensagem" required minlength="20" maxlength="2000" placeholder="Conte brevemente: qual problema resolver, escala (usuários / escopo), prazo aproximado."></textarea>
-                <span class="hint">Mínimo 20 caracteres. Ao enviar, seu cliente de email abre com a mensagem pronta.</span>
+                <span class="hint">Mínimo 20 caracteres. Resposta em até 24h.</span>
             </div>
-            <button type="submit" class="btn btn-primary">
+            <div class="honeypot" aria-hidden="true">
+                <label for="f-website">Deixe este campo em branco</label>
+                <input type="text" id="f-website" name="website" tabindex="-1" autocomplete="off">
+            </div>
+            <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+            <button type="submit" id="formSubmit" class="btn btn-primary">
                 Enviar proposta
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </button>
@@ -1000,7 +1002,7 @@
 
 <footer>
     <p>© 2026 Studart.Dev · Salomão Studart</p>
-    <p class="footer-meta">Remoto do Brasil · Disponível para CLT, PJ e projetos sob contrato</p>
+    <p class="footer-meta">Remoto do Brasil</p>
 </footer>
 
 <script>
@@ -1049,35 +1051,59 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // Contact form: build structured mailto
+    // Contact form: POST para Cloudflare Worker (Resend)
+    const CONTACT_ENDPOINT = 'https://studart-contact.salomaomstudart.workers.dev/submit';
     const form = document.getElementById('contactForm');
-    form.addEventListener('submit', (e) => {
+    const formStatus = document.getElementById('formStatus');
+    const formSubmit = document.getElementById('formSubmit');
+    const originalSubmitText = formSubmit.innerHTML;
+
+    function setStatus(kind, message) {
+        formStatus.className = 'form-status' + (kind ? ' ' + kind : '');
+        formStatus.textContent = message || '';
+    }
+
+    form.addEventListener('submit', async (e) => {
         e.preventDefault();
         const data = new FormData(form);
-        const nome = (data.get('nome') || '').trim();
-        const email = (data.get('email') || '').trim();
-        const assunto = (data.get('assunto') || '').trim();
-        const mensagem = (data.get('mensagem') || '').trim();
+        const payload = {
+            nome: (data.get('nome') || '').trim(),
+            email: (data.get('email') || '').trim(),
+            assunto: (data.get('assunto') || '').trim(),
+            mensagem: (data.get('mensagem') || '').trim(),
+            website: data.get('website') || ''
+        };
 
-        if (!nome || !email || mensagem.length < 20) {
+        if (!payload.nome || !payload.email || payload.mensagem.length < 20) {
             form.reportValidity();
             return;
         }
 
-        const subject = `[Portfolio] ${assunto} — ${nome}`;
-        const bodyLines = [
-            `Nome: ${nome}`,
-            `Email: ${email}`,
-            `Assunto: ${assunto}`,
-            '',
-            'Mensagem:',
-            mensagem,
-            '',
-            '---',
-            'Enviado de salomaostudart.github.io/portfolio'
-        ];
-        const mailto = `mailto:salomaostudart@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join('\n'))}`;
-        window.location.href = mailto;
+        setStatus('', 'Enviando...');
+        formSubmit.disabled = true;
+        formSubmit.innerHTML = 'Enviando...';
+
+        try {
+            const res = await fetch(CONTACT_ENDPOINT, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+            const result = await res.json().catch(() => ({}));
+
+            if (res.ok && result.ok) {
+                setStatus('success', result.message || 'Mensagem enviada. Respondo em até 24h.');
+                form.reset();
+            } else {
+                const msg = result.error || 'Não foi possível enviar agora.';
+                setStatus('error', msg + ' Você pode escrever direto para salomaostudart@gmail.com');
+            }
+        } catch (err) {
+            setStatus('error', 'Erro de conexão. Escreva direto para salomaostudart@gmail.com');
+        } finally {
+            formSubmit.disabled = false;
+            formSubmit.innerHTML = originalSubmitText;
+        }
     });
 </script>
 
