@@ -1,0 +1,14 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "portfolio",
+  "compatibility_date": "2026-04-18",
+  "assets": {
+    "directory": "./",
+    "not_found_handling": "single-page-application"
+  },
+  "routes": [
+    { "pattern": "sal.dev.br", "custom_domain": true },
+    { "pattern": "www.sal.dev.br", "custom_domain": true }
+  ],
+  "observability": { "enabled": true }
+}
