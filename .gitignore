@@ -4,3 +4,17 @@ node_modules/
 Thumbs.db
 *.log
 .claude/
+
+# Cloudflare Wrangler
+.wrangler/
+.dev.vars
+
+# Environments
+.env.*
+!.env.example
+
+# Secrets
+*.pem
+*.key
+*.secret
+credentials.json
